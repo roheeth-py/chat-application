@@ -4,10 +4,6 @@ A new Flutter project.
 
 ## Getting Started
 
-Platform  Firebase App Id
-android   1:526845893556:android:b5217bf388742500a170e1
-ios       1:526845893556:ios:7af019adc35a48eea170e1
-
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:

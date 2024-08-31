@@ -13,8 +13,8 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   final formKey = GlobalKey<FormState>();
   var _isLogin = true;
-  final _enteredEmail = TextEditingController();
-  final _enteredPassword = TextEditingController();
+  // final _enteredEmail = TextEditingController();
+  // final _enteredPassword = TextEditingController();
 
   Future<void> saveState() async {
     if (!formKey.currentState!.validate()) {
@@ -27,7 +27,7 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_isLogin) {
       try {
         final userCredentials = await _firebase.signInWithEmailAndPassword(
-            email: _enteredEmail.text, password: _enteredPassword.text);
+            email: "test@gmail.com", password: "1qaz!QAZ");
         print(userCredentials);
       } on FirebaseAuthException catch (error) {
         if(!context.mounted){
@@ -44,7 +44,7 @@ class _AuthScreenState extends State<AuthScreen> {
     } else {
       try {
         final userCredentials = await _firebase.createUserWithEmailAndPassword(
-            email: _enteredEmail.text, password: _enteredPassword.text);
+            email: "test@gmail.com", password: "1qaz!QAZ");
         print(userCredentials);
       } on FirebaseAuthException catch (error) {
         if(!context.mounted){
@@ -60,12 +60,12 @@ class _AuthScreenState extends State<AuthScreen> {
     }
   }
 
-  @override
-  void dispose() {
-    _enteredEmail;
-    _enteredPassword;
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _enteredEmail;
+  //   _enteredPassword;
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     child: Column(
                       children: [
                         TextFormField(
-                          controller: _enteredEmail,
+                          // controller: _enteredEmail,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.all(
@@ -120,7 +120,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           height: 25,
                         ),
                         TextFormField(
-                          controller: _enteredPassword,
+                          // controller: _enteredPassword,
                           validator: (state) {
                             if (state!.trim().isEmpty || state.length<7) {
                               return "Enter Password";
