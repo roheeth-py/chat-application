@@ -5,8 +5,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ),
+  );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -23,7 +29,8 @@ class App extends StatelessWidget {
       title: 'FlutterChat',
       theme: ThemeData().copyWith(
         scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-        appBarTheme: const AppBarTheme(color: Color(0xFFF5F5F5), centerTitle: true),
+        appBarTheme:
+            const AppBarTheme(color: Color(0xFFF5F5F5), centerTitle: true),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -37,18 +44,19 @@ class App extends StatelessWidget {
           ),
         ),
       ),
-      home: StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), builder: (ctx, snapshot){
-        if(snapshot.connectionState == ConnectionState.waiting){
-          return SplashScreen();
-        }
+      home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return SplashScreen();
+            }
 
-        if(snapshot.hasData){
-          return ChatScreen();
-        }
+            if (snapshot.hasData) {
+              return ChatScreen();
+            }
 
-        return AuthScreen();
-
-      }),
+            return AuthScreen();
+          }),
     );
   }
 }

@@ -8,10 +8,9 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
       ),
       body: Center(
-        child: Text("Splash Screen"),
+        child: Text("Loading..."),
       ),
     );
   }
