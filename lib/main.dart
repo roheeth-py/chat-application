@@ -26,12 +26,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FlutterChat',
+      title: 'You nd Me',
       theme: ThemeData().copyWith(
         scaffoldBackgroundColor: const Color(0xFFF5F5F5),
         appBarTheme:
             const AppBarTheme(color: Color(0xFFF5F5F5), centerTitle: true),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFFD01737),

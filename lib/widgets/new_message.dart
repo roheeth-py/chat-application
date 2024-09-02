@@ -27,7 +27,7 @@ class _NewMessageState extends State<NewMessage> {
       "time":Timestamp.now(),
       "user_id": userData.data()!["username"],
       "user_image": userData.data()!["image_url"],
-      "uid":user,
+      "uid":user.uid,
     });
 
     message.clear();
@@ -42,7 +42,7 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 5, bottom: 14),
+      padding: const EdgeInsets.only(left: 15, right: 5, bottom: 14,top: 10),
       child: Row(
         children: [
           Expanded(
@@ -70,7 +70,7 @@ class _NewMessageState extends State<NewMessage> {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Color(0xFF0000FF),
+              color: Color(0xFF007AFF).withOpacity(0.8),
             ),
             child: IconButton(
               onPressed: submit,

@@ -22,7 +22,8 @@ class ChatScreen extends StatelessWidget {
               fontSize: 24,
             ),
           ),
-          forceMaterialTransparency: false,
+          forceMaterialTransparency: true,
+          elevation: 0,
           leading: IconButton(
             onPressed: signOut,
             icon: const Icon(
