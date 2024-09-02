@@ -27,6 +27,7 @@ class _NewMessageState extends State<NewMessage> {
       "time":Timestamp.now(),
       "user_id": userData.data()!["username"],
       "user_image": userData.data()!["image_url"],
+      "uid":user,
     });
 
     message.clear();

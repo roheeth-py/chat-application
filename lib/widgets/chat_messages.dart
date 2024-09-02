@@ -42,8 +42,8 @@ class ChatMessages extends StatelessWidget {
           itemBuilder: (ctx, item) {
             final chatMessage = data[item].data();
             final next = item + 1 < data.length ? data[item + 1].data() : null;
-            final currentUser = chatMessage["user_id"];
-            final nextUser = next!=null? next["user_id"]:null;
+            final currentUser = chatMessage["uid"];
+            final nextUser = next!=null? next["uid"]:null;
             final nextUserSame = currentUser == nextUser;
             if(nextUserSame){
               return MessageBubble.next(message: chatMessage["text"], isMe: authUser.uid==currentUser);
